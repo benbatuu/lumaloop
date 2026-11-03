@@ -1,0 +1,249 @@
+.page {
+  padding-bottom: var(--section-pad);
+}
+
+.hero {
+  padding-block: clamp(40px, 7vw, 88px) clamp(32px, 5vw, 56px);
+  border-bottom: 1px solid var(--border);
+  background:
+    radial-gradient(50% 120% at 100% 0%, rgba(253, 211, 13, 0.22), transparent 70%),
+    var(--cream);
+}
+
+.heroInner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.title {
+  margin-top: 20px;
+  font-size: clamp(2.8rem, 7vw, 5.2rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+}
+
+.meta {
+  margin-top: 18px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.meta time {
+  color: var(--navy);
+  font-weight: 750;
+  white-space: nowrap;
+}
+
+.icon {
+  width: clamp(84px, 12vw, 140px);
+  height: auto;
+  border-radius: 23%;
+  box-shadow: 0 24px 40px -20px rgba(3, 18, 65, 0.5);
+  transform: rotate(6deg);
+  flex: none;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: clamp(32px, 6vw, 80px);
+  padding-top: clamp(32px, 5vw, 64px);
+}
+
+.aside {
+  min-width: 0;
+}
+
+.toc {
+  position: sticky;
+  top: calc(var(--header-h) + 24px);
+  padding: 22px 20px;
+  border-radius: var(--radius-card);
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+  max-height: calc(100vh - var(--header-h) - 48px);
+  overflow-y: auto;
+}
+
+.tocTitle,
+.tocMobile summary {
+  font-size: 0.95rem;
+  font-weight: 750;
+  color: var(--steel);
+}
+
+.tocList {
+  display: grid;
+  gap: 2px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: toc;
+}
+
+.tocList li {
+  counter-increment: toc;
+}
+
+.tocList a {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  padding: 7px 8px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  font-weight: 550;
+  line-height: 1.4;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.tocList a::before {
+  content: counter(toc);
+  font-weight: 750;
+  color: var(--steel-light);
+}
+
+.tocList a:hover {
+  background: rgba(253, 211, 13, 0.2);
+  color: var(--navy);
+}
+
+.tocMobile {
+  display: none;
+}
+
+.article {
+  max-width: 720px;
+  min-width: 0;
+}
+
+.intro p {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--navy);
+}
+
+.intro p + p {
+  margin-top: 16px;
+}
+
+.section {
+  padding-top: 36px;
+  margin-top: 36px;
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.65rem);
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+
+.section p,
+.section li {
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.section p + p,
+.section ul + p,
+.section p + ul {
+  margin-top: 14px;
+}
+
+.section ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.section li {
+  position: relative;
+  padding-left: 26px;
+}
+
+.section li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 0.68em;
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--honey);
+  box-shadow: 0 0 0 2px rgba(201, 138, 2, 0.25);
+  transform: rotate(45deg);
+}
+
+.article a {
+  color: var(--navy);
+  font-weight: 650;
+  text-decoration-color: var(--honey);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.placeholder {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(240, 100, 85, 0.12);
+  color: #b3352a;
+  font-weight: 700;
+}
+
+.related {
+  margin-top: 48px;
+  padding: 24px 26px;
+  border-radius: var(--radius-card);
+  background: var(--navy);
+  color: var(--cream);
+}
+
+.related h2 {
+  color: var(--honey);
+  font-size: 1rem;
+}
+
+.related ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article .related a {
+  color: var(--cream);
+}
+
+@media (max-width: 899px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .toc {
+    display: none;
+  }
+
+  .tocMobile {
+    display: block;
+    padding: 14px 18px;
+    border-radius: 16px;
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+  }
+
+  .tocMobile summary {
+    cursor: pointer;
+  }
+}

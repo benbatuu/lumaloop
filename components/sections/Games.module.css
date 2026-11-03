@@ -1,0 +1,326 @@
+.section {
+  padding-top: clamp(48px, 6vw, 80px);
+}
+
+.header {
+  display: grid;
+  gap: 18px;
+  max-width: 720px;
+  margin-bottom: clamp(40px, 6vw, 64px);
+}
+
+.list {
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+}
+
+.panel {
+  position: relative;
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+}
+
+/* ------------------------------------------------------------------
+   Parcel Loop: deep navy game panel
+   ------------------------------------------------------------------ */
+.navyPanel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 64px);
+  padding: clamp(28px, 5vw, 64px) clamp(22px, 5vw, 64px) clamp(48px, 6vw, 80px);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(80, 108, 158, 0.45), transparent 60%),
+    var(--navy);
+  color: var(--text-on-dark-muted);
+  box-shadow: var(--shadow-panel);
+}
+
+.panelCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+}
+
+.loopLogo {
+  width: min(100%, 420px);
+  height: auto;
+  margin-block: -6px -10px;
+}
+
+.description {
+  max-width: 46ch;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--cream);
+}
+
+.features {
+  display: grid;
+  gap: 14px;
+  margin: 4px 0 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
+.features strong {
+  display: block;
+  color: var(--cream);
+  font-weight: 750;
+}
+
+.featureMark {
+  width: 14px;
+  height: 14px;
+  margin-top: 5px;
+  border-radius: 4px;
+  transform: rotate(12deg);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.18);
+}
+
+.loopArt {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 420px);
+}
+
+.loopHalo {
+  position: absolute;
+  inset: -12%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(253, 211, 13, 0.5), rgba(251, 155, 3, 0.15) 60%, transparent);
+}
+
+.loopIcon {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 23%;
+  box-shadow:
+    0 0 0 6px rgba(255, 246, 232, 0.1),
+    0 40px 70px -30px rgba(0, 0, 0, 0.8);
+  transform: rotate(4deg);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.loopArt:hover .loopIcon {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* Conveyor hazard stripe, borrowed from the game's belt. */
+.hazard {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 14px;
+  background: repeating-linear-gradient(-45deg, var(--honey) 0 16px, #0b1636 16px 32px);
+  background-size: 45px 100%;
+  animation: belt 1.6s linear infinite;
+}
+
+@keyframes belt {
+  to {
+    background-position: 45px 0;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Block Reactor: warm card with mode grid
+   ------------------------------------------------------------------ */
+.blockPanel {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  padding: clamp(28px, 5vw, 64px) clamp(22px, 5vw, 64px);
+  background:
+    radial-gradient(60% 80% at 0% 0%, rgba(240, 100, 85, 0.14), transparent 70%),
+    radial-gradient(50% 70% at 100% 100%, rgba(131, 46, 198, 0.1), transparent 70%),
+    var(--warm-white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-card);
+}
+
+.blockHead {
+  display: grid;
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.blockLogo {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  justify-self: center;
+  filter: drop-shadow(0 20px 24px rgba(75, 53, 36, 0.22));
+}
+
+.blockIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.blockTitle {
+  font-size: clamp(1.9rem, 3.6vw, 2.8rem);
+  letter-spacing: -0.04em;
+}
+
+.blockDescription {
+  max-width: 52ch;
+  color: var(--text-muted);
+  font-size: 1.06rem;
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mode {
+  position: relative;
+  padding: 14px 16px 18px;
+  border-radius: 20px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out);
+}
+
+.mode::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 0;
+  height: 4px;
+  border-radius: 0 0 4px 4px;
+  background: var(--accent);
+}
+
+.mode:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.mode img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 520 / 290;
+  object-fit: contain;
+}
+
+.mode h4 {
+  margin-top: 6px;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+}
+
+.mode p {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+/* ------------------------------------------------------------------
+   Game #3 teaser
+   ------------------------------------------------------------------ */
+.next {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(20px, 4vw, 40px);
+  padding: clamp(24px, 4vw, 40px);
+  border: 2px dashed rgba(80, 108, 158, 0.45);
+  border-radius: var(--radius-panel);
+  background: repeating-linear-gradient(135deg, transparent 0 18px, rgba(129, 153, 192, 0.07) 18px 36px);
+}
+
+.mystery {
+  display: grid;
+  place-items: center;
+  width: clamp(88px, 12vw, 128px);
+  aspect-ratio: 1;
+  border-radius: 28%;
+  background: var(--gradient-honey);
+  box-shadow:
+    inset 0 -8px 0 rgba(201, 138, 2, 0.45),
+    0 20px 34px -16px rgba(251, 155, 3, 0.7);
+  transform: rotate(-8deg);
+  animation: wobble 4s ease-in-out infinite;
+}
+
+.mystery span {
+  font-size: clamp(2.6rem, 5vw, 3.6rem);
+  font-weight: 900;
+  color: var(--navy);
+  line-height: 1;
+}
+
+@keyframes wobble {
+  50% {
+    transform: rotate(6deg) translateY(-4px);
+  }
+}
+
+.nextTitle {
+  margin-top: 14px;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: -0.035em;
+}
+
+.nextText {
+  max-width: 56ch;
+  margin-top: 10px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 999px) {
+  .modes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 899px) {
+  .navyPanel,
+  .blockHead {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .loopArt {
+    order: -1;
+    width: min(78%, 360px);
+    margin-top: 12px;
+  }
+
+  .blockLogo {
+    max-width: 220px;
+  }
+}
+
+@media (max-width: 559px) {
+  .modes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .next {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

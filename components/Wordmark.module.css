@@ -1,0 +1,55 @@
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--navy);
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+.mark {
+  flex: none;
+  width: 46px;
+  height: auto;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.wordmark:hover .mark {
+  transform: rotate(-12deg) scale(1.08);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.name {
+  font-size: 1.32rem;
+  font-weight: 900;
+  letter-spacing: -0.045em;
+}
+
+.loop {
+  color: var(--steel);
+}
+
+.sub {
+  margin-top: 3px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--steel);
+}
+
+.light {
+  color: var(--cream);
+}
+
+.light .loop {
+  color: var(--honey);
+}
+
+.light .sub {
+  color: var(--steel-light);
+}

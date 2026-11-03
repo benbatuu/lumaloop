@@ -1,0 +1,101 @@
+.footer {
+  position: relative;
+  background: var(--navy);
+  color: var(--text-on-dark-muted);
+  overflow: hidden;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--honey) 0 14px,
+    var(--navy) 14px 28px
+  );
+  opacity: 0.9;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) repeat(2, minmax(0, 1fr));
+  gap: 48px;
+  padding-top: 80px;
+  padding-bottom: 56px;
+}
+
+.brand p {
+  max-width: 36ch;
+  margin-top: 20px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.heading {
+  margin-bottom: 16px;
+  color: var(--honey);
+  font-size: 1rem;
+  font-weight: 750;
+}
+
+.spaced {
+  margin-top: 28px;
+}
+
+.col ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.col a {
+  color: var(--cream);
+  font-weight: 550;
+  text-decoration: none;
+  background-image: linear-gradient(var(--honey), var(--honey));
+  background-size: 0 2px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  padding-bottom: 2px;
+  transition:
+    background-size 0.25s var(--ease-out),
+    color 0.18s ease;
+}
+
+.col a:hover {
+  color: #fff;
+  background-size: 100% 2px;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+  border-top: 1px solid rgba(129, 153, 192, 0.22);
+  font-size: 0.88rem;
+}
+
+.made span {
+  color: var(--honey);
+  font-size: 0.6rem;
+  vertical-align: 2px;
+  margin-left: 4px;
+}
+
+@media (max-width: 759px) {
+  .top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 64px;
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}

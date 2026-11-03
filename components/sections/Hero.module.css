@@ -1,0 +1,159 @@
+.hero {
+  position: relative;
+  padding-block: clamp(32px, 5vw, 72px) clamp(64px, 8vw, 112px);
+  overflow: hidden;
+}
+
+.grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(3rem, 6.2vw, 5.8rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+/* The page-load moment: each line drops onto the page like a parcel landing on a belt. */
+.line {
+  display: block;
+  animation: land 0.8s var(--ease-out) both;
+}
+
+.line:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+@keyframes land {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.5em) rotate(-2deg);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(0.04em) rotate(0.4deg);
+  }
+  100% {
+    transform: none;
+  }
+}
+
+.lead {
+  max-width: 34ch;
+  margin-top: 28px;
+  animation: settle 0.7s 0.35s var(--ease-out) both;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+  animation: settle 0.7s 0.45s var(--ease-out) both;
+}
+
+@keyframes settle {
+  from {
+    opacity: 0;
+  }
+}
+
+.now {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 40px;
+  font-size: 0.93rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+.now span {
+  margin-left: 6px;
+}
+
+.nowIcon {
+  display: block;
+  width: 44px;
+  flex: none;
+  border-radius: 11px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px -6px rgba(3, 18, 65, 0.45);
+  transition: transform 0.25s var(--ease-out);
+}
+
+.nowIcon:hover {
+  transform: translateY(-3px) rotate(-4deg);
+}
+
+.nowIcon img {
+  width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------------ */
+
+.visual {
+  width: 100%;
+  max-width: 600px;
+  justify-self: end;
+}
+
+.loop {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  animation: settle 0.9s 0.2s var(--ease-out) both;
+}
+
+.slats {
+  animation: run 1s linear infinite;
+}
+
+.hazard {
+  animation: run 1.17s linear infinite;
+}
+
+@keyframes run {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.logo {
+  transform-box: fill-box;
+  transform-origin: 50% 60%;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.loop:hover .logo {
+  transform: rotate(-4deg) scale(1.04);
+}
+
+.rider {
+  filter: drop-shadow(0 8px 6px rgba(3, 18, 65, 0.3));
+}
+
+@media (max-width: 899px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .visual {
+    justify-self: center;
+    max-width: 480px;
+  }
+}
