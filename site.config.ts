@@ -11,8 +11,12 @@ export const siteConfig = {
   shortName: "LumaLoop",
   description:
     "LumaLoop Game Studio is an independent studio making colorful mobile games that spark curiosity, reward clever thinking, and make every moment a little more playful.",
-  /** Set NEXT_PUBLIC_SITE_URL to the production domain. */
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  /** NEXT_PUBLIC_SITE_URL wins; on Vercel the project's production domain is used automatically. */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000"),
 
   /** Studio contact address shown in the Contact section, e.g. "hello@yourdomain.com". */
   contactEmail: null as string | null,
