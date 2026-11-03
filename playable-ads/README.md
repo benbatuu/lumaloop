@@ -4,9 +4,15 @@ Self-contained HTML5 playable ads for **Parcel Loop** and **Block Reactor**. Eve
 inlined, needs no network requests (except Google's required `exitapi.js`), and works in portrait and landscape.
 
 ```bash
-node playable-ads/build.mjs   # writes playable-ads/dist
-node playable-ads/serve.mjs   # preview at http://localhost:4400/parcel-loop/ and /block-reactor/
+npm run ads:build   # writes public/ads/<game>/
+npm run dev         # preview at http://localhost:3000/ads
 ```
+
+The website serves the builds, so once deployed they are at:
+
+- `/ads`: a page listing both games, with preview links and every network file to download.
+  It is not linked from the site and is marked `noindex`.
+- `/ads/parcel-loop` and `/ads/block-reactor`: the playable ads in the browser.
 
 ## Which file goes where
 
@@ -50,4 +56,5 @@ is visible during play as well.
 - `src/shared/template.html` and `src/shared/cta.js`: page shell, end card, ad-network CTA and lifecycle.
 - `src/<game>/game.js`: the mini game.
 - `assets/`: compressed copies of the games' own art.
+- Built files live in `public/ads/` and are committed, so they deploy with the site.
 - `window.__playable` exposes `step`, `state`, `tap` and `drag` for automated checks.

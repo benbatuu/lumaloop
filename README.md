@@ -2,7 +2,8 @@
 
 Next.js (App Router, TypeScript, plain CSS) site for LumaLoop Game Studio: home page with Parcel Loop,
 Block Reactor and a "game three" teaser, plus the Parcel Loop privacy policy at `/privacy-policy`.
-Playable ads for both games live in [`playable-ads/`](playable-ads/README.md).
+Playable ads for both games live in [`playable-ads/`](playable-ads/README.md); the built files are served at
+`/ads` (not linked from the site).
 
 ```bash
 npm install
@@ -10,7 +11,7 @@ npm run dev        # http://localhost:3000
 npm run lint
 npm run typecheck
 npm run build
-npm run ads:build  # playable ads -> playable-ads/dist
+npm run ads:build  # playable ads -> public/ads (served at /ads)
 ```
 
 ## Before launch

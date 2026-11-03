@@ -1,0 +1,77 @@
+.page {
+  padding-block: clamp(40px, 6vw, 80px) var(--section-pad);
+}
+
+.title {
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.intro {
+  max-width: 56ch;
+  margin-top: 14px;
+  color: var(--text-muted);
+}
+
+.list {
+  display: grid;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.game {
+  padding: clamp(20px, 4vw, 32px);
+  border-radius: var(--radius-card);
+  background: var(--warm-white);
+  border: 1px solid var(--border);
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.head h2 {
+  flex: 1;
+  font-size: 1.6rem;
+}
+
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+}
+
+.files {
+  display: grid;
+  gap: 0;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.files li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+}
+
+.files span {
+  color: var(--text-muted);
+}
+
+.files a {
+  color: var(--navy);
+  font-weight: 650;
+  text-decoration-color: var(--honey);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}

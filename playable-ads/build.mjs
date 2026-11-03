@@ -68,7 +68,8 @@ const dataUri = (file) =>
 
 const template = read("src/shared/template.html");
 const ctaJs = read("src/shared/cta.js");
-const dist = join(root, "dist");
+// Served by the website at /ads/<game>/ (see app/ads/page.tsx).
+const dist = join(root, "..", "public", "ads");
 rmSync(dist, { recursive: true, force: true });
 
 const report = [];
@@ -109,12 +110,12 @@ for (const game of GAMES) {
       writeFileSync(file, html);
     }
     const mb = statSync(file).size / 1024 / 1024;
-    report.push({ game: game.slug, network, file: file.replace(root + "/", ""), mb, ok: mb <= cfg.limit, limit: cfg.limit });
+    report.push({ game: game.slug, network, file: file.replace(join(root, "..") + "/", ""), mb, ok: mb <= cfg.limit, limit: cfg.limit });
   }
   if (!game.iosAppId) console.warn(`! ${game.title}: no iosAppId set, iOS fallback opens App Store search.`);
 }
 rmSync(join(dist, ".stage"), { recursive: true, force: true });
 
 for (const r of report)
-  console.log(`${r.ok ? "✓" : "✗"} ${r.file.padEnd(52)} ${r.mb.toFixed(2)} MB (limit ${r.limit} MB)`);
+  console.log(`${r.ok ? "✓" : "✗"} ${r.file.padEnd(48)} ${r.mb.toFixed(2)} MB (limit ${r.limit} MB)`);
 if (report.some((r) => !r.ok)) process.exit(1);

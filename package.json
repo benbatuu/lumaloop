@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "ads:build": "node playable-ads/build.mjs",
-    "ads:serve": "node playable-ads/serve.mjs"
+    "ads:build": "node playable-ads/build.mjs"
   },
   "dependencies": {
     "next": "^16.4.4",
