@@ -19,9 +19,9 @@ export const siteConfig = {
       : "http://localhost:3000"),
 
   /** Studio contact address shown in the Contact section, e.g. "hello@yourdomain.com". */
-  contactEmail: null as string | null,
+  contactEmail: "lumaloopgamestudio@gmail.com" as string | null,
   /** Support address printed in the Privacy Policy, e.g. "support@yourdomain.com". */
-  supportEmail: null as string | null,
+  supportEmail: "lumaloopgamestudio@gmail.com" as string | null,
 
   /** Add real profiles here, e.g. { label: "Instagram", href: "https://instagram.com/…" }. */
   socials: [] as SocialLink[],
